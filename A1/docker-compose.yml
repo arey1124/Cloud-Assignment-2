@@ -1,0 +1,12 @@
+services:
+  container1:
+    image: arey0996/container-app-1:latest
+    ports:
+      - "6000:6000"
+    volumes:
+      - .:/app
+
+  container2:
+    image: arey0996/container-app-2:latest
+    depends_on:
+      - container1
