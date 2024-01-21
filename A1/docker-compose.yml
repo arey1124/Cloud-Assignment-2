@@ -4,9 +4,13 @@ services:
     ports:
       - "6000:6000"
     volumes:
-      - .:/app
+      - .:/app/src/container-app-1
 
   container2:
     image: arey0996/container-app-2:latest
     depends_on:
       - container1
+    ports:
+      - "6001:6001"
+    volumes:
+      - .:/app/src/container-app-2

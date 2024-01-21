@@ -13,7 +13,7 @@ app.post('/calculate', async (req, res) => {
 
     // Validate input JSON
     if (!file) {
-      return res.status(400).json({
+        return res.status(400).json({
             file: null,
             error: "Invalid JSON input."
         });
