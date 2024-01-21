@@ -28,7 +28,7 @@ app.post('/calculate', async (req, res) => {
     }
 
     // Send data to Container 2
-    const responseFromContainer2 = await axios.post('http://localhost:6001/process', {
+    const responseFromContainer2 = await axios.post('http://container2:6001/process', {
       file,
       product,
     });
@@ -36,8 +36,10 @@ app.post('/calculate', async (req, res) => {
     // Return the response from Container 2
     res.json(responseFromContainer2.data);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(404).json({ 
+        file: JSON.parse(error.config.data).file,
+        error: error
+    });
   }
 });
 

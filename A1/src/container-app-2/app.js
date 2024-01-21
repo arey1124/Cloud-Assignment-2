@@ -15,7 +15,7 @@ app.post('/process', async (req, res) => {
 
     for (const row of csvData) {
       if(row.product === undefined || row.amount === undefined){
-        return res.status(400).json({
+        return res.json({
           file: file,
           error: "Input file not in CSV format."
         });

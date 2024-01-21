@@ -4,7 +4,7 @@ services:
     ports:
       - "6000:6000"
     volumes:
-      - .:/app/src/container-app-1
+      - .:/src/container-app-1
 
   container2:
     image: arey0996/container-app-2:latest
@@ -13,4 +13,4 @@ services:
     ports:
       - "6001:6001"
     volumes:
-      - .:/app/src/container-app-2
+      - .:/src/container-app-2
