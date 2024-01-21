@@ -20,7 +20,7 @@ app.post('/calculate', async (req, res) => {
     }
 
     // Verify if the file exists
-    if (!fs.existsSync(file)) {
+    if (!fs.existsSync('/src/container-app-1/'+file)) {
       return res.status(404).json({ 
             file: file,
             error: "File not found."

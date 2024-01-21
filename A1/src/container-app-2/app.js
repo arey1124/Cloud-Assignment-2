@@ -45,7 +45,7 @@ app.post('/process', async (req, res) => {
 function parseCSV(file) {
     return new Promise((resolve, reject) => {
       const results = [];
-      const stream = fs.createReadStream(file);
+      const stream = fs.createReadStream('/src/container-app-2/'+file);
   
       stream
         .pipe(csv())
