@@ -13,27 +13,35 @@ app.post('/process', async (req, res) => {
     const { file, product } = req.body;
     const csvData = await parseCSV(file);
 
-    for (const row of csvData) {
-      if(row.product === undefined || row.amount === undefined){
-        return res.json({
-          file: file,
-          error: "Input file not in CSV format."
-        });
-      }
-    }
-
     var sum = 0;
+    var found = false;
+
     for (const row of csvData) {
         const prod = row.product;
+        if(prod === undefined || row.amount === undefined){
+          return res.json({
+            file: file,
+            error: "Input file not in CSV format.",
+          });
+        }
         if(prod == product) {
             const amount = parseInt(row.amount);
             sum+=amount;
+            found = true;
         }
     }
-    res.json({
+    if(found) {
+      res.json({
         file: file,
         sum: sum,
-    });
+      });
+    } else {
+      return res.json({
+        file: file,
+        error: "Input file not in CSV format.",
+      });
+    }
+    
 
   } catch (error) {
     console.error(error);
