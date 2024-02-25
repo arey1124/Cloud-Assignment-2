@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
 var connection = mysql.createConnection({
-  host     : "database-2.c36ssy0co52j.us-east-2.rds.amazonaws.com",
+  host     : "database-2.ctey4ykc0dav.us-east-1.rds.amazonaws.com",
   user     : "admin",
   password : "Cloud123",
   port     : "3306",
