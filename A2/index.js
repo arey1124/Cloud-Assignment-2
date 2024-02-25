@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 var connection = mysql.createConnection({
   host     : "database-2.ctey4ykc0dav.us-east-1.rds.amazonaws.com",
