@@ -7,11 +7,11 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 80;
 
 var connection = mysql.createConnection({
-  host     : "database-2.ctey4ykc0dav.us-east-1.rds.amazonaws.com",
-  user     : "admin",
-  password : "Cloud123",
+  host     : "host-name",
+  user     : "user-name",
+  password : "password",
   port     : "3306",
-  database : "Cloud2",
+  database : "db-name",
 });
 
 // Route to store products
